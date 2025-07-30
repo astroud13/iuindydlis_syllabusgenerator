@@ -1,1 +1,57 @@
-<!-- Final HTML placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Syllabus Generator - IU Indianapolis</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Luddy School - IU Indianapolis</h1>
+    <h2>Department of Library and Information Science</h2>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </header>
+  <main>
+    <form id="syllabusForm">
+      <h2>Course Information</h2>
+      <input type="text" id="coursePrefix" placeholder="Course Prefix & Number" required>
+      <input type="text" id="instructorFirst" placeholder="Instructor First Name" required>
+      <input type="text" id="instructorLast" placeholder="Instructor Last Name" required>
+      <input type="text" id="courseTitle" placeholder="Course Title" required>
+      <input type="text" id="semester" placeholder="Semester" required>
+      <input type="text" id="emails" placeholder="Instructor Email(s)" required>
+      <input type="text" id="sectionNo" placeholder="Section Number" required>
+      <input type="text" id="creditHours" placeholder="Credit Hours" required>
+      <input type="text" id="deliveryMode" placeholder="Delivery Mode" required>
+      <input type="text" id="prerequisites" placeholder="Prerequisites">
+
+      <h2>Description, Readings, and Software</h2>
+      <textarea id="courseDescription" rows="3" placeholder="Course Description"></textarea>
+      <textarea id="requiredReadings" rows="3" placeholder="Required Readings"></textarea>
+      <textarea id="recommendedReadings" rows="3" placeholder="Recommended Readings"></textarea>
+      <textarea id="software" rows="2" placeholder="Software Requirements"></textarea>
+
+      <h2>AI Policy</h2>
+      <select id="aiPolicy">
+        <option value="sample1">Fully Permitted</option>
+        <option value="sample2">Permitted for Specific Assignments</option>
+        <option value="sample3">Not Permitted</option>
+      </select>
+
+      <h2>Learning Outcomes Mapping</h2>
+      <div id="outcomesContainer"></div>
+      <button type="button" onclick="addOutcomeRow()">+ Add Outcome</button>
+
+      <br><br>
+      <button type="button" onclick="generatePreview()">Generate Preview</button>
+    </form>
+
+    <section id="previewSection">
+      <h2>Preview</h2>
+      <div id="preview" style="white-space:pre-wrap; border:1px solid #ccc; padding:1em; background:white;"></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
