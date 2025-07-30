@@ -3,28 +3,52 @@ function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 }
 
+function addOutcomeRow() {
+  const container = document.getElementById("outcomesContainer");
+  const div = document.createElement("div");
+  div.innerHTML = `
+    <input type="text" placeholder="Learning Outcome" class="loText"/>
+    RBT: <select class="rbt"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+    PGPL: <select class="pgpl"><option>1</option><option>2</option><option>3</option><option>4</option></select>
+    FIL: <select class="fil"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+    MLIS Goal: <select class="mlis">
+      <option>1</option><option>2</option><option>3</option><option>4</option>
+      <option>5</option><option>6</option><option>7</option>
+    </select>
+    <br><br>`;
+  container.appendChild(div);
+}
+
 function generatePreview() {
-  const fields = [
-    "coursePrefix", "instructorLast", "courseTitle", "semester",
-    "instructors", "emails", "sectionNo", "creditHours", "deliveryMode",
-    "prerequisites", "courseDescription", "requiredReadings",
-    "recommendedReadings", "software", "aiPolicy"
-  ];
-  let output = "";
+  const output = [];
+
+  const fields = ["coursePrefix", "instructorLast", "courseTitle", "semester", "instructors", "emails", "sectionNo", "creditHours", "deliveryMode", "prerequisites", "courseDescription", "requiredReadings", "recommendedReadings", "software"];
+  output.push("COURSE INFORMATION");
   fields.forEach(id => {
     const el = document.getElementById(id);
-    const label = el.previousSibling.textContent || id;
-    output += label + "\n" + el.value + "\n\n";
+    output.push(`${el.previousElementSibling?.textContent || id}: ${el.value}`);
   });
 
-  const aiPolicy = document.getElementById("aiPolicy").value;
-  if (aiPolicy === "open") {
-    output += "**AI POLICY**: Use permitted with citation.\n";
-  } else if (aiPolicy === "limited") {
-    output += "**AI POLICY**: Use permitted only for specified assignments.\n";
+  output.push("\nGENERATIVE AI POLICY");
+  const policy = document.getElementById("aiPolicy").value;
+  if (policy === "open") {
+    output.push("AI use is fully permitted in this course with citation.");
+  } else if (policy === "limited") {
+    output.push("AI use is permitted only for specified assignments.");
   } else {
-    output += "**AI POLICY**: Use of AI is not permitted.\n";
+    output.push("AI use is not permitted in this course.");
   }
 
-  document.getElementById("preview").innerText = output;
+  output.push("\nLEARNING OUTCOMES MAPPING");
+  const rows = document.querySelectorAll("#outcomesContainer div");
+  rows.forEach((row, i) => {
+    const lo = row.querySelector(".loText").value;
+    const rbt = row.querySelector(".rbt").value;
+    const pgpl = row.querySelector(".pgpl").value;
+    const fil = row.querySelector(".fil").value;
+    const mlis = row.querySelector(".mlis").value;
+    output.push(`LO${i + 1}: ${lo} (RBT ${rbt}, PGPL ${pgpl}, FIL ${fil}, MLIS Goal ${mlis})`);
+  });
+
+  document.getElementById("preview").innerText = output.join("\n\n");
 }
