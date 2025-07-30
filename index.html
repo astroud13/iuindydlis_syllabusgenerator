@@ -17,34 +17,33 @@
   <main>
     <form id="syllabusForm">
       <h2>Course Information</h2>
-      <label>Course Prefix & Number: <input type="text" id="coursePrefix" required></label>
-      <label>Instructor Last Name: <input type="text" id="instructorLast" required></label>
-      <label>Course Title: <input type="text" id="courseTitle" required></label>
-      <label>Semester: <input type="text" id="semester" required></label>
-      <label>Instructor Name(s): <input type="text" id="instructors" required></label>
-      <label>Email(s): <input type="text" id="emails" required></label>
-      <label>Section No.: <input type="text" id="sectionNo" required></label>
-      <label>Credit Hours: <input type="text" id="creditHours" required></label>
-      <label>Delivery Mode: <input type="text" id="deliveryMode" required></label>
-      <label>Prerequisites: <input type="text" id="prerequisites"></label>
+      <p>Course Prefix & Number:<br><input type="text" id="coursePrefix" required></p>
+      <p>Instructor Last Name:<br><input type="text" id="instructorLast" required></p>
+      <p>Course Title:<br><input type="text" id="courseTitle" required></p>
+      <p>Semester:<br><input type="text" id="semester" required></p>
+      <p>Instructor Name(s):<br><input type="text" id="instructors" required></p>
+      <p>Email(s):<br><input type="text" id="emails" required></p>
+      <p>Section No.:<br><input type="text" id="sectionNo" required></p>
+      <p>Credit Hours:<br><input type="text" id="creditHours" required></p>
+      <p>Delivery Mode:<br><input type="text" id="deliveryMode" required></p>
+      <p>Prerequisites:<br><input type="text" id="prerequisites"></p>
 
       <h2>Course Description</h2>
-      <textarea id="courseDescription" rows="4"></textarea>
+      <p><textarea id="courseDescription" rows="4"></textarea></p>
 
       <h2>Readings and Software</h2>
-      <label>Required Readings:</label>
-      <textarea id="requiredReadings" rows="3"></textarea>
-      <label>Recommended Readings:</label>
-      <textarea id="recommendedReadings" rows="3"></textarea>
-      <label>Software Requirements:</label>
-      <textarea id="software" rows="2"></textarea>
+      <p>Required Readings:<br><textarea id="requiredReadings" rows="3"></textarea></p>
+      <p>Recommended Readings:<br><textarea id="recommendedReadings" rows="3"></textarea></p>
+      <p>Software Requirements:<br><textarea id="software" rows="2"></textarea></p>
 
       <h2>Generative AI Policy</h2>
-      <select id="aiPolicy">
-        <option value="open">Fully permitted (with citation)</option>
-        <option value="limited">Permitted only for specified assignments</option>
-        <option value="none">Not permitted</option>
-      </select>
+      <p>
+        <select id="aiPolicy">
+          <option value="open">Fully permitted (with citation)</option>
+          <option value="limited">Permitted only for specified assignments</option>
+          <option value="none">Not permitted</option>
+        </select>
+      </p>
 
       <h2>Learning Outcomes Mapping</h2>
       <div id="outcomesContainer"></div>
