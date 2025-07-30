@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IU Indianapolis Syllabus Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Syllabus Generator</h1>
+    <p>Create a complete, customized syllabus with IU auto-fill sections</p>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </header>
+  <main>
+    <form id="syllabusForm">
+      <h2>Course Information</h2>
+      <input type="text" id="coursePrefix" placeholder="Course Prefix (e.g., LIS-S604)" required><br>
+      <input type="text" id="instructorLast" placeholder="Instructor Last Name" required><br>
+      <input type="text" id="courseTitle" placeholder="Course Title" required><br>
+      <input type="text" id="semester" placeholder="Semester (e.g., Fall 2025)" required><br>
+      <input type="text" id="instructors" placeholder="Instructor Name(s)" required><br>
+      <input type="text" id="emails" placeholder="Instructor Email(s)" required><br>
+      <input type="text" id="sectionNo" placeholder="Section Number" required><br>
+      <input type="text" id="creditHours" placeholder="Credit Hours" required><br>
+      <input type="text" id="deliveryMode" placeholder="Delivery Mode" required><br>
+      <input type="text" id="prerequisites" placeholder="Prerequisites"><br>
+
+      <h2>Course Description</h2>
+      <textarea id="courseDescription" rows="5" placeholder="Enter course description here..."></textarea><br>
+
+      <h2>Readings and Software</h2>
+      <textarea id="requiredReadings" rows="3" placeholder="Required Readings"></textarea><br>
+      <textarea id="recommendedReadings" rows="3" placeholder="Recommended Readings"></textarea><br>
+      <textarea id="software" rows="3" placeholder="Required Software"></textarea><br>
+
+      <h2>Generative AI Policy</h2>
+      <select id="aiPolicy">
+        <option value="open">Fully permitted (with citation)</option>
+        <option value="limited">Permitted only for specified assignments</option>
+        <option value="none">Not permitted</option>
+      </select><br>
+
+      <h2>Learning Outcomes</h2>
+      <div id="outcomesArea">
+        <button type="button" onclick="addOutcomeRow()">+ Add Outcome</button><br>
+      </div>
+
+      <h2>Assessment Breakdown</h2>
+      <div id="assessmentArea">
+        <button type="button" onclick="addAssessmentRow()">+ Add Assessment</button><br>
+      </div>
+
+      <h2>Weekly Schedule</h2>
+      <div id="scheduleArea">
+        <button type="button" onclick="addScheduleRow()">+ Add Week</button><br>
+      </div>
+
+      <br><button type="button" onclick="generatePreview()">Generate Preview</button>
+      <button type="button" onclick="downloadDoc()">Download DOCX</button>
+    </form>
+
+    <hr>
+    <h2>Preview</h2>
+    <div id="preview"></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
