@@ -1,1 +1,47 @@
-<!-- Final version in progress: index.html with IU branding and full logic -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Syllabus Generator - IU Indianapolis</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Luddy School - IU Indianapolis</h1>
+    <h2>Department of Library and Information Science</h2>
+    <p>Create a fully customized syllabus with IU policy and program alignment</p>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </header>
+  <main>
+    <form id="syllabusForm">
+      <label>Course Prefix & Number: <input type="text" id="coursePrefix" required></label><br>
+      <label>Instructor Last Name: <input type="text" id="instructorLast" required></label><br>
+      <label>Course Title: <input type="text" id="courseTitle" required></label><br>
+      <label>Semester: <input type="text" id="semester" required></label><br>
+      <label>Instructor Name(s): <input type="text" id="instructors" required></label><br>
+      <label>Email(s): <input type="text" id="emails" required></label><br>
+      <label>Section No.: <input type="text" id="sectionNo" required></label><br>
+      <label>Credit Hours: <input type="text" id="creditHours" required></label><br>
+      <label>Delivery Mode: <input type="text" id="deliveryMode" required></label><br>
+      <label>Prerequisites: <input type="text" id="prerequisites"></label><br>
+      <label>Course Description:<br><textarea id="courseDescription" rows="5" cols="60"></textarea></label><br>
+      <label>Required Readings:<br><textarea id="requiredReadings" rows="4" cols="60"></textarea></label><br>
+      <label>Recommended Readings:<br><textarea id="recommendedReadings" rows="4" cols="60"></textarea></label><br>
+      <label>Software Requirements:<br><textarea id="software" rows="3" cols="60"></textarea></label><br>
+      <label>AI Policy:
+        <select id="aiPolicy">
+          <option value="open">Fully permitted (with citation)</option>
+          <option value="limited">Permitted only for specified assignments</option>
+          <option value="none">Not permitted</option>
+        </select>
+      </label><br><br>
+      <button type="button" onclick="generatePreview()">Generate Preview</button>
+    </form>
+    <h2>Preview</h2>
+    <div id="preview" style="white-space:pre-wrap; border:1px solid #ccc; padding:1em;"></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

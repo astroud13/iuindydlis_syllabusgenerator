@@ -1,1 +1,7 @@
-/* Final version in progress: style.css with IU + Luddy branding */
+
+body { font-family: Georgia, serif; background: #f2f2f2; color: #2d2926; padding: 2em; }
+header { background: #990000; color: white; padding: 1em; text-align: center; }
+input, textarea, select { width: 100%; margin-bottom: 1em; padding: 0.5em; }
+button { background: #990000; color: white; padding: 0.5em 1em; border: none; cursor: pointer; }
+.dark-mode { background: #1c1c1c; color: white; }
+.dark-mode header { background: #660000; }
