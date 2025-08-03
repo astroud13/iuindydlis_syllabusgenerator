@@ -1,1 +1,73 @@
-<!-- Final HTML with assignment mapping and clickable links -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IU Indianapolis DLIS Syllabus Generator</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>IU Indianapolis – Luddy School of Informatics, Computing, and Engineering</h1>
+    <h2>Department of Library and Information Science</h2>
+    <h3>Syllabus Generator</h3>
+  </header>
+
+  <main>
+    <form id="syllabusForm">
+      <section>
+        <h4>Course Information</h4>
+        <label>Course Title <input type="text" name="courseTitle" required /></label>
+        <label>Course Code <input type="text" name="courseCode" required /></label>
+        <label>Semester <input type="text" name="semester" required /></label>
+        <label>Section Number <input type="text" name="sectionNumber" required /></label>
+        <label>Credit Hours <input type="number" name="creditHours" value="3" required /></label>
+      </section>
+
+      <section>
+        <h4>Instructor Information</h4>
+        <label>First Name <input type="text" name="instructorFirstName" required /></label>
+        <label>Last Name <input type="text" name="instructorLastName" required /></label>
+        <label>Email <input type="email" name="instructorEmail" required /></label>
+      </section>
+
+      <section>
+        <h4>Texts, Software, and Schedule</h4>
+        <label>Required Readings <textarea name="readings"></textarea></label>
+        <label>Software Requirements <textarea name="software"></textarea></label>
+        <label>Course Schedule <textarea name="schedule"></textarea></label>
+      </section>
+
+      <section>
+        <h4>Assessments and Learning Outcomes</h4>
+        <div id="outcomesWrapper">
+          <button type="button" onclick="addOutcome()">Add Outcome</button>
+        </div>
+      </section>
+
+      <section>
+        <h4>AI Policy</h4>
+        <select name="aiPolicy" id="aiPolicySelect">
+          <option value="1">Permitted with Citation</option>
+          <option value="2">Permitted Only When Indicated</option>
+          <option value="3">Not Permitted</option>
+        </select>
+      </section>
+
+      <button type="submit">Generate Syllabus Preview</button>
+    </form>
+
+    <section id="syllabusPreview">
+      <h3>Syllabus Preview</h3>
+      <div id="previewContainer"></div>
+      <button onclick="exportDocx()">Export as .docx</button>
+      <button onclick="exportPDF()">Export as .pdf</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>IU Indianapolis – Department of Library and Information Science</p>
+  </footer>
+</body>
+</html>
